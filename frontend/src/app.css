@@ -1,0 +1,40 @@
+@import 'tailwindcss';
+@import 'modern-normalize/modern-normalize.css';
+@import 'konsta/svelte/theme.css';
+
+@theme {
+	--font: 'GeneralSans', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+	--font-ios: var(--font);
+	--font-material: var(--font);
+	--color-brand-primary: #ff677e;
+	--color-md-light-primary: #ff677e;
+	--color-md-light-on-primary: var(--color-neutral-900);
+	--font-weight-medium: 600;
+}
+
+@font-face {
+	font-family: 'GeneralSans';
+	src: url('./assets/fonts/GeneralSans-Variable.woff2') format('woff2');
+	font-weight: 200 700;
+	font-display: swap;
+	font-style: normal;
+}
+
+html {
+	font-family: var(--font);
+	background-color: var(--color-neutral-900);
+}
+
+@media (prefers-color-scheme: dark) {
+	html {
+		color-scheme: dark;
+	}
+}
+
+/* If the user prefers light mode, 
+we still enforce color-scheme: dark, despite the user preference */
+@media (prefers-color-scheme: light) {
+	html {
+		color-scheme: dark;
+	}
+}
