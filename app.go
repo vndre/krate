@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"krate/internal/handlers"
 	collection_model "krate/internal/model"
 	"log"
 
@@ -9,8 +10,9 @@ import (
 )
 
 type App struct {
-	ctx context.Context
-	ob  *objectbox.ObjectBox
+	ctx               context.Context
+	ob                *objectbox.ObjectBox
+	collectionHandler *handlers.CollectionHandler
 }
 
 func NewApp() *App {
@@ -30,6 +32,7 @@ func (a *App) startup(ctx context.Context) {
 	}
 
 	a.ob = objectBox
+	a.collectionHandler = handlers.NewCollectionHandler(objectBox)
 	log.Println("ObjectBox database initialized successfully.")
 }
 
