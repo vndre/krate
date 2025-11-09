@@ -2,6 +2,8 @@
 @import 'modern-normalize/modern-normalize.css';
 @import 'konsta/svelte/theme.css';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
 	--font: 'GeneralSans', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 	--font-ios: var(--font);
@@ -23,18 +25,4 @@
 html {
 	font-family: var(--font);
 	background-color: var(--color-neutral-900);
-}
-
-@media (prefers-color-scheme: dark) {
-	html {
-		color-scheme: dark;
-	}
-}
-
-/* If the user prefers light mode, 
-we still enforce color-scheme: dark, despite the user preference */
-@media (prefers-color-scheme: light) {
-	html {
-		color-scheme: dark;
-	}
 }

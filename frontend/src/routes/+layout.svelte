@@ -12,7 +12,7 @@
 </svelte:head>
 
 <KonstaProvider theme="material">
-  <App theme="material" class="k-material p-16 flex">
+  <App theme="material" class="k-material p-16 flex" dark>
     {@render children()}
   </App>
 </KonstaProvider>

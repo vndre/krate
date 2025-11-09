@@ -1,11 +1,16 @@
 <script lang="ts">
   import Button from '@components/Button.svelte'
+  import NewCollectionPanel from '@components/NewCollectionPanel.svelte'
 	import type { PageProps } from './$types'
   
 	let { data }: PageProps = $props()
   const { collections } = data
 
   let newCollectionPanelOpen = $state(false)
+
+  function handleToggleNewCollectionPanel() {
+    newCollectionPanelOpen = !newCollectionPanelOpen
+  }
   
   // async function handleCreate() {
   //   // Example: Create a new collection
@@ -22,7 +27,7 @@
 <div class="flex flex-col gap-4 w-full">
   <div class="flex items-center justify-between">
     <h1 class="text-4xl font-bold select-none">Collections</h1>
-    <Button onclick={() => newCollectionPanelOpen = true}>+ New</Button>
+    <Button onclick={handleToggleNewCollectionPanel}>+ New</Button>
   </div>
 
   {#if collections.length === 0}
@@ -51,3 +56,4 @@
   {/if}
 </div>
 
+<NewCollectionPanel open={!newCollectionPanelOpen} handleClose={handleToggleNewCollectionPanel} />
