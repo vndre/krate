@@ -2,6 +2,7 @@ package main
 
 import (
 	"embed"
+	"log"
 
 	"github.com/wailsapp/wails/v2"
 	"github.com/wailsapp/wails/v2/pkg/options"
@@ -12,9 +13,12 @@ import (
 var assets embed.FS
 
 func main() {
-	app := NewApp()
+	app, err := NewApp()
+	if err != nil {
+		log.Fatalf("Failed to initialize app: %s", err)
+	}
 
-	err := wails.Run(&options.App{
+	err = wails.Run(&options.App{
 		Title:  "krate",
 		Width:  1280,
 		Height: 720,
@@ -26,6 +30,7 @@ func main() {
 		OnShutdown:       app.shutdown,
 		Bind: []interface{}{
 			app,
+			app.CollectionHandler, // Bind handler directly to expose all its methods
 		},
 	})
 

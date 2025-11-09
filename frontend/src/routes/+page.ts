@@ -1,6 +1,6 @@
 import { error } from '@sveltejs/kit'
 import type { PageLoad } from './$types'
-import { GetCollections } from '@wailsjs/main/App'
+import { GetCollections } from '@wailsjs/handlers/CollectionHandler'
 import type { collection_model } from '@wailsjs/models'
 
 export const load: PageLoad = async () => {

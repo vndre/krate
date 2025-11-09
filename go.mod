@@ -5,7 +5,7 @@ go 1.23
 require (
 	github.com/google/flatbuffers v25.9.23+incompatible
 	github.com/objectbox/objectbox-go v1.9.0
-	github.com/wailsapp/wails/v2 v2.10.2
+	github.com/wailsapp/wails/v2 v2.11.0
 )
 
 require (
@@ -31,7 +31,7 @@ require (
 	github.com/tkrajina/go-reflector v0.5.8 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasttemplate v1.2.2 // indirect
-	github.com/wailsapp/go-webview2 v1.0.19 // indirect
+	github.com/wailsapp/go-webview2 v1.0.22 // indirect
 	github.com/wailsapp/mimetype v1.4.1 // indirect
 	golang.org/x/crypto v0.33.0 // indirect
 	golang.org/x/net v0.35.0 // indirect
@@ -39,4 +39,4 @@ require (
 	golang.org/x/text v0.22.0 // indirect
 )
 
-// replace github.com/wailsapp/wails/v2 v2.10.2 => /Users/andi/go/pkg/mod
+// replace github.com/wailsapp/wails/v2 v2.11.0 => /Users/andi/webdev/wails/v2

@@ -12,28 +12,31 @@ import (
 type App struct {
 	ctx               context.Context
 	ob                *objectbox.ObjectBox
-	collectionHandler *handlers.CollectionHandler
+	CollectionHandler *handlers.CollectionHandler
 }
 
-func NewApp() *App {
-	return &App{}
-}
+func NewApp() (*App, error) {
+	app := &App{}
 
-func (a *App) startup(ctx context.Context) {
-	a.ctx = ctx
-
+	// Initialize ObjectBox before binding
 	objectBox, err := objectbox.NewBuilder().
 		Model(collection_model.ObjectBoxModel()).
 		Build()
 
 	if err != nil {
-		// A real app should handle this more gracefully
-		log.Fatalf("Failed to build ObjectBox: %s", err)
+		return nil, err
 	}
 
-	a.ob = objectBox
-	a.collectionHandler = handlers.NewCollectionHandler(objectBox)
+	app.ob = objectBox
+	app.CollectionHandler = handlers.NewCollectionHandler(objectBox)
 	log.Println("ObjectBox database initialized successfully.")
+
+	return app, nil
+}
+
+func (a *App) startup(ctx context.Context) {
+	a.ctx = ctx
+	// ObjectBox is already initialized in NewApp
 }
 
 func (a *App) shutdown(ctx context.Context) {

@@ -37,6 +37,7 @@
 		"vite-plugin-devtools-json": "^1.0.0"
 	},
 	"dependencies": {
+		"@lucide/svelte": "^0.553.0",
 		"konsta": "^5.0.4",
 		"modern-normalize": "^3.0.1",
 		"svelte-dropzone-runes": "^1.0.3"
