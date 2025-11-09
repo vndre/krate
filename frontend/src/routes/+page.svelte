@@ -4,6 +4,8 @@
   
 	let { data }: PageProps = $props()
   const { collections } = data
+
+  let newCollectionPanelOpen = $state(false)
   
   // async function handleCreate() {
   //   // Example: Create a new collection
@@ -20,7 +22,7 @@
 <div class="flex flex-col gap-4 w-full">
   <div class="flex items-center justify-between">
     <h1 class="text-4xl font-bold select-none">Collections</h1>
-    <Button>+ New</Button>
+    <Button onclick={() => newCollectionPanelOpen = true}>+ New</Button>
   </div>
 
   {#if collections.length === 0}
@@ -48,3 +50,4 @@
     </div>
   {/if}
 </div>
+

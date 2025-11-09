@@ -38,6 +38,7 @@
 	},
 	"dependencies": {
 		"konsta": "^5.0.4",
-		"modern-normalize": "^3.0.1"
+		"modern-normalize": "^3.0.1",
+		"svelte-dropzone-runes": "^1.0.3"
 	}
 }
